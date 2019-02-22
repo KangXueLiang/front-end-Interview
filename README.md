@@ -30,8 +30,8 @@
           parseInt('2', 1) 以1为基数解析'2'， 2不是有效的一进制数字，无法解析，返回NaN
           同理
           parseInt('3', 2) 3不是有效的二进制数字，无法解析，返回NaN
-        [参考MDN-map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-        [参考MDN-parseIng()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+      [参考MDN-map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+      [参考MDN-parseIng()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 ## HTTP、HTTPS
 ## algorithm
 ## others
