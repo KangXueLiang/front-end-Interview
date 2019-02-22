@@ -4,7 +4,7 @@
 ## HTML
 ## CSS
 ## JS
-* ['1', '2', '3'].map(parseInt) what & why ?
+- ['1', '2', '3'].map(parseInt) what & why ?
 正确答案是[1,NaN, NaN]
 解析： 
 先来看一下map()
