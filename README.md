@@ -4,21 +4,27 @@
 ## HTML
 ## CSS
 ## JS
-  - ['1', '2', '3'].map(parseInt) what & why ?
+- ['1', '2', '3'].map(parseInt) what & why ?
 
-         正确答案是[1,NaN, NaN]
-         解析： 
+		 正确答案是[1,NaN, NaN]
+         
+		 解析： 
+         
          先来看一下map()
+         
          Array.prototype.map()会创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
          语法： var new_array = arr.map(function callback(currentValue[, index[, array]]) {
               // Return element for new_array }[, 
               thisArg])  
          它的callback可以接受三个参数，分别是当前元素，当前索引，原数组。
+         
          再来看一下parseInt() 
+         
          parseInt() 函数解析一个字符串参数，并返回一个指定基数的整数 (数学系统的基础)。
          语法：parseInt(string, radix)
          它接受两个参数，string表示要解析的字符串，如果不是字符串，将会调用该参数的toString()方法
                         radix表示一个介于2和36之间的整数(数学系统的基础)，表示上述字符串的基数。默认值为0，表示采用十进制进行解析。
+                        
           现在综合来看这道题，['1', '2', '3'].map(parseInt) === [parseInt('1', 0), parseInt('2', 1), parseInt('3', 2)]
 
           parseInt('1', 0) MDN上有说，当基数为0的时候，JavaScript 作如下处理
@@ -31,6 +37,7 @@
           同理
           parseInt('3', 2) 3不是有效的二进制数字，无法解析，返回NaN
       [参考MDN-map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+      
       [参考MDN-parseIng()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 ## HTTP、HTTPS
 ## algorithm
