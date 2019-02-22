@@ -6,7 +6,7 @@
 ## JS
 - ['1', '2', '3'].map(parseInt) what & why ?
 
-         正确答案是[1,NaN, NaN]
+       正确答案是[1,NaN, NaN]
          解析： 
          先来看一下map()
          Array.prototype.map()会创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
