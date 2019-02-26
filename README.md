@@ -40,18 +40,18 @@
 		}	
 	 }
 	 Function.prototype.myCall = function(ctx) {
-	 	// ctx如果没有传，默认为window
-	 	ctx = ctx || window
-		// 生成一个唯一的fn，避免污染可能已有的fn
-		let fn = mySymbol(ctx)
-		// 给context添加一个方法 指向this
-		ctx.fn = this
-		// 获取当前参数列表
-		let arg = [...arguments].slice(1)
-		// 执行fn
-		ctx.fn(arg)
-		// 删除fn
-		delete ctx.fn
+	 	
+	 	ctx = ctx || window // ctx如果没有传，默认为window
+		
+		let fn = mySymbol(ctx) // 生成一个唯一的fn，避免污染可能已有的fn
+		
+		ctx.fn = this // 给context添加一个方法 指向this
+		
+		let arg = [...arguments].slice(1) // 获取当前参数列表
+		
+		ctx.fn(...arg) // 执行fn
+		
+		delete ctx.fn // 删除fn
 	 }
 	 ```
 	 
