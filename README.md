@@ -19,9 +19,42 @@
 		
 ## CSS
 ## JS
-- 实现call， apply, bind
+- 实现call， apply,  bind
 
+	 首先， 需要考虑以下几点
+	* 如果不传第一个参数，那么上下文默认为window
+	* 改变this的指向，让原函数可以接受参数并执行
+	* 给上下文定义的函数必须唯一
+	* 扩展完要把自定义函数删除
 	
+	 好了，首先来实现call
+	 ```js
+	 // 生成一个唯一标识
+	 mySymbol = function(obj) {
+	 	let unique = (Math.random() + new Date().getTime()).toString(32).slice(0, 8)
+		// 如果当前不是唯一，递归调用一下
+		if (obj.hasOwnProperty(unique)) {
+			return mySymbol(unique)
+		} else {
+			return unique
+		}	
+	 }
+	 Function.prototype.myCall = function(ctx) {
+	 	// ctx如果没有传，默认为window
+	 	ctx = ctx || window
+		// 生成一个唯一的fn，避免污染可能已有的fn
+		let fn = mySymbol(ctx)
+		// 给context添加一个方法 指向this
+		ctx.fn = this
+		// 获取当前参数列表
+		let arg = [...arguments].slice(1)
+		// 执行fn
+		ctx.fn(arg)
+		// 删除fn
+		delete ctx.fn
+	 }
+	 ```
+	 
 - ['1', '2', '3'].map(parseInt) what & why ?
 
 		 正确答案是[1, NaN, NaN]
