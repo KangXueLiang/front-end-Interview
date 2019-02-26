@@ -19,6 +19,9 @@
 		
 ## CSS
 ## JS
+- 实现call， apply, bind
+
+	
 - ['1', '2', '3'].map(parseInt) what & why ?
 
 		 正确答案是[1, NaN, NaN]
