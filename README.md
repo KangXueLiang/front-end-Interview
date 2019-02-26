@@ -57,12 +57,14 @@
 	 ```
 	 
 	 接下来是bind的实现，首先，分析一下bind的功能：
+	 
 	 * 执行函数，绑定this
 	 * 返回一个函数，这里有两种情况，一种是作为构造函数使用，一种是直接调用。要区别处理
 	 	* 直接调用常规操作
 		* new 使用的时候，因为无法改变构造函数的this，因此要忽略传入的this
 	 * 支持多个参数
 	 * 支持柯里化形式传参 fn(1)(2)
+	 
 	 bind的实现是要基于call， apply的，代码如下
 	 ```js
 	 Function.prototype.myBind = function(ctx) {
