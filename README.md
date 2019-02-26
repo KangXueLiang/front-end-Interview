@@ -29,31 +29,56 @@
 	
 	 好了，首先来实现call
 	 ```js
-	 // 生成一个唯一标识
-	 mySymbol = function(obj) {
-	 	let unique = (Math.random() + new Date().getTime()).toString(32).slice(0, 8)
-		// 如果当前不是唯一，递归调用一下
-		if (obj.hasOwnProperty(unique)) {
-			return mySymbol(unique)
-		} else {
-			return unique
-		}	
-	 }
 	 Function.prototype.myCall = function(ctx) {
-	 	
-	 	ctx = ctx || window // ctx如果没有传，默认为window
-		
-		let fn = mySymbol(ctx) // 生成一个唯一的fn，避免污染可能已有的fn
-		
-		ctx.fn = this // 给context添加一个方法 指向this
-		
-		let arg = [...arguments].slice(1) // 获取当前参数列表
-		
-		ctx.fn(...arg) // 执行fn
-		
-		delete ctx.fn // 删除fn
+	 	// ctx如果没有传，默认为window
+	 	ctx = ctx || window 
+		// 生成一个唯一的fn，避免污染可能已有的fn属性或方法
+		let fn = Symbol() 
+		// 给context添加一个方法 指向this
+		ctx.fn = this 
+		// 获取当前参数列表
+		let arg = [...arguments].slice(1) 
+		// 执行fn
+		ctx.fn(...arg) 
+		// 删除fn
+		delete ctx.fn 
 	 }
 	 ```
+	 apply的实现与call基本一致，只是参数传递一个数组，代码如下。
+	 ```js
+	 Function.prototype.myApply = function(ctx) {
+	 	ctx = ctx || window 
+		let fn = Symbol() 
+		ctx.fn = this 
+		let arg = [...arguments].slice(1) 
+		ctx.fn(arg) 
+		delete ctx.fn 
+	 }
+	 ```
+	 
+	 接下来是bind的实现，首先，分析一下bind的功能：
+	 * 执行函数，绑定this
+	 * 返回一个函数，这里有两种情况，一种是作为构造函数使用，一种是直接调用。要区别处理
+	 	* 直接调用常规操作
+		* new 使用的时候，因为无法改变构造函数的this，因此要忽略传入的this
+	 * 支持多个参数
+	 * 支持柯里化形式传参 fn(1)(2)
+	 bind的实现是要基于call， apply的，代码如下
+	 ```js
+	 Function.prototype.myBind = function(ctx) {
+	 	let self = this
+		let regs = [...arguments].splice(1)
+	 	retutn function F () {
+			// 因为返回了一个函数，我们可以 new F()，所以需要判断
+			if (this instanceof of F) {
+				return new self(...args, ...arguments)
+			}
+			return this.apply(ctx, regs.concat(...arguments)) 
+		}
+	 }
+	 ```
+	 
+	 
 	 
 - ['1', '2', '3'].map(parseInt) what & why ?
 
