@@ -51,7 +51,7 @@
 	 * 当执行完所有微任务后，如有必要会渲染页面
 	 * 然后开始下一轮 Event Loop，执行宏任务中的异步代码，也就是 setTimeout 中的回调函数
 	 
-	 [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+	 参考：[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 - 实现call， apply,  bind
 
 	 首先， 需要考虑以下几点
@@ -159,6 +159,6 @@
   
     ![TCP连接](https://user-images.githubusercontent.com/34148615/53062591-3d846300-34fc-11e9-8d0f-4063d9ff3398.png)
 	
-  [作为前端你了解多少TCP内容](https://juejin.im/post/5c078058f265da611c26c235)
+  参考：[作为前端你了解多少TCP内容](https://juejin.im/post/5c078058f265da611c26c235)
 ## algorithm
 ## others
