@@ -37,6 +37,7 @@
 	console.log(6)
 	 ```
 	 答案：1 3 6 4 5 2
+
 	 解释如下：
 	 * javascript的设计是单线程的，为了不阻塞主线程，就产生了一个解决方案： event loop
 	 * event loop分为两部分：
@@ -44,7 +45,7 @@
 	  微任务(jobs || microtask)包括 process.nextTick ，promise ，MutationObserver。
 	  
 	  宏任务(task || macrotask)包括 script ， setTimeout ，setInterval ，setImmediate ，I/O ，UI rendering。
-	 * 首先执行同步代码，这属于宏任务
+	 * 首先执行同步代码，这属于宏任务。
 	 * 当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
 	 * 执行所有微任务
 	 * 当执行完所有微任务后，如有必要会渲染页面
