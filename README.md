@@ -50,6 +50,8 @@
 	 * 执行所有微任务
 	 * 当执行完所有微任务后，如有必要会渲染页面
 	 * 然后开始下一轮 Event Loop，执行宏任务中的异步代码，也就是 setTimeout 中的回调函数
+	 
+	 [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 - 实现call， apply,  bind
 
 	 首先， 需要考虑以下几点
