@@ -19,6 +19,27 @@
 		
 ## CSS
 ## JS
+- 生成一个[min, max]的随机整数
+	```js
+	function getRandomIntInclusive(min, max) {
+		let min = Math.ceil(min)
+		let max = Math.floor(max)
+		return Math.floor(Math.random()*(max - min + 1)) + min
+	}
+	```
+	* 解析如下
+	Math.random() 生成一个[0, 1) 之间的伪随机浮点数，包括0，但不包括1
+	
+	Math.random() * min 生成一个[0, min) 之间的伪随机浮点数， 包含0， 不包含min
+	
+	Math.floor(Math.random() * min) 生成一个[0, min) 之间的伪随机整数， 包含0， 不包含min
+	
+	Math.floor(Math.random() * (max - min)) + min 生成一个[min, max) 之间的伪随机整数， 包含min， 不包含max
+	
+	Math.floor(Math.random() * (max - min + 1)) + m 生成一个[min, max + 1) 之间的伪随机整数， 包含min， 不包含max + 1,即可以取到包括max的最大值
+	
+	因为要生成的是一个整数，但不能保证min, max也是整数， 会出现一些问题，所以要先处理他们，一个向上取整，一个向下取整，就OK 了
+	
 - 解释一下什么是 Event Loop ？
 	 结合段代码来说一下
 	 ```js
