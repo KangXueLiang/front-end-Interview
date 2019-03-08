@@ -19,6 +19,17 @@
 		
 ## CSS
 ## JS
+- 如何创建一个没有原型的对象?
+	 ```js
+	 var obj = Object.create(null)
+	 
+	 o = {}
+	 o.__proto__ = null
+	 
+	 o = {}
+	 Object.setPrototypeOf(o, null)
+	 
+	 ```
 - 生成一个[min, max]的随机整数
 	```js
 	function getRandomIntInclusive(min, max) {
