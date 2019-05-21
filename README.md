@@ -299,4 +299,11 @@
 	
   参考：[作为前端你了解多少TCP内容](https://juejin.im/post/5c078058f265da611c26c235)
 ## algorithm
+- 输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+  思路：递归实现，如果当前节点不存在，返回0；如果当前节点没有子节点，返回1；如果有子节点，返回较长子节点长度+1。
+  ```js
+  function TreeDepth(pRoot) {
+  	return pRoot ? 0 : ((!pRoot.left && !pRoot.right) ? 1 : Math.max(TreeDepth(pRoot.left), TreeDepth(pRoot.right)) + 1 )
+  }
+  ```
 ## others
