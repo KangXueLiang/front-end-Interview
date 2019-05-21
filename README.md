@@ -303,7 +303,7 @@
   思路：递归实现，如果当前节点不存在，返回0；如果当前节点没有子节点，返回1；如果有子节点，返回较长子节点长度+1。
   ```js
   function TreeDepth(pRoot) {
-  	return pRoot ? 0 : ((!pRoot.left && !pRoot.right) ? 1 : Math.max(TreeDepth(pRoot.left), TreeDepth(pRoot.right)) + 1 )
+  	return !pRoot ? 0 : ((!pRoot.left && !pRoot.right) ? 1 : Math.max(TreeDepth(pRoot.left), TreeDepth(pRoot.right)) + 1 )
   }
   ```
 ## others
